@@ -18,7 +18,7 @@ docker ps -a -> show all containers  <br/>
 docker image rm imageName -> delete imageName (it should not be in use)  <br/>
 docker image rm imageName -f -> delete imageName (force delete)  <br/>
 docker container rm containerName  -> delete container <br/>
-docker container rm containerName1 containerName2 -> delete container <br/>
+docker container rm containerName1 containerName2 -> delete containers: containerName1&containerName2 <br/>
 docker system prune -a (delete all containers and all images and wolumes)  <br/>
 
 
