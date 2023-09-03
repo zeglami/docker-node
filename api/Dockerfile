@@ -5,6 +5,8 @@ FROM node:17-alpine
 #this the work directory 
 WORKDIR /app
 
+COPY package.json .
+
 #COPY <src> <dest> (see xNotes)
 COPY . .
 
