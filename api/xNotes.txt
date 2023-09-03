@@ -2,39 +2,9 @@
 Runing the project
 -----------------------------------------------------------
 cd api
-docker build -t myapp1 . 
+docker build -t myapp41 . 
 
 -------------------------------------------------------------
-COPY <src> <dest>
+Create a container
 -------------------------------------------------------------
-
-*<src> represents the source file or directory on the host machine. This can be an absolute path or a path relative to 
-the Dockerfile's location.
-
-*<dest> represents the destination directory inside the Docker image where the files or directories from the source 
-should be copied. This can also be an absolute path or a path relative to the image's file system.
-Use a base image
----
-FROM ubuntu:20.04
-
-
-# Create a directory in the image
-RUN mkdir /app
-
-# Copy files from the host into the image
-COPY myapp /app
----
-*We start with a base image (Ubuntu 20.04).
-*We create a directory named /app inside the image using the RUN instruction.
-*We use the COPY instruction to copy the myapp directory from the host into the /app directory of the image.
-*After building the Docker image with this Dockerfile, the resulting image will contain the /app directory with the contents of 
-the myapp directory from the host machine.
-
--------------------------------------------------------------
-WORKDIR
--------------------------------------------------------------
-*WORKDIR is a Dockerfile instruction that sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, 
-and ADD instructions that follow it. By setting the working directory, you can make it easier to run commands 
-and manage files in your container.
-
-
+docker run --name myapp14_c -p 4000:4000 myapp41
