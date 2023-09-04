@@ -1,20 +1,28 @@
 -----------------------------------------------------------
-Runing the project
+Run/Stop the Project
 -----------------------------------------------------------
-cd api
-docker build -t myapp45:nodemon . 
+
+Cleaning:
+- **docker system prune:** Use this command to remove unused Docker resources, such as stopped containers,
+ dangling images, and more. It helps you reclaim valuable disk space. Make sure Docker Desktop is running before
+  executing this command.
+
+--------------
+Running the Project:
+- **docker-compose up:** Launch your project defined in the docker-compose.yml file. This command starts
+ the specified services, creating containers and connecting them according to the defined configurations.
+  It's the first step in getting your application up and running.
+--------------
+Stopping the Project:
+- **docker-compose down:** This command gracefully stops and removes the containers, networks, 
+and volumes defined in your docker-compose.yml file. It ensures that resources are cleaned up without leaving behind artifacts.
 
 -------------------------------------------------------------
-Create a container
+Management
 -------------------------------------------------------------
-docker run --name myapp45_c1_nodemon -p 5050:4000 --rm -v C:\Users\Admin\OneDrive\dev\devops\docker\docker-node\api:/app -v /app/node_modules  myapp45:nodemon
 
---
-docker stop myapp42_c_nodemon
+Stopping and Cleaning Up All Resources:
+- **docker-compose down --rmi all -v:** When you need to completely reset your project,
+ this command not only stops and removes containers, networks, and volumes but also removes all associated images. 
+ It provides a clean slate for rebuilding and testing your project from scratch.
 
--------------------------------------------------------------
-package.json
--------------------------------------------------------------
-"dev": "nodemon -L app.js"
-This command tells nodemon to monitor changes to your app.js file and automatically restart 
-the Node.js application when changes are detected.

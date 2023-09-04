@@ -1,0 +1,25 @@
+# Specify the Docker Compose file version.
+version: '3.8'
+
+# Define the services that make up your application.
+services:
+  # Define a service named 'api'.
+  api:
+    # Build the Docker image for this service using the Dockerfile in the './api' directory.
+    build: ./api
+    
+    # Assign a custom name to the container created from this service.
+    container_name: api_c
+    
+    # Map port 5050 on the host to port 4000 in the container.
+    ports:
+      - '5050:4000'
+    
+    # Define volumes to mount local directories into the container.
+    volumes:
+      # Mount the './api' directory on the host into the '/app' directory in the container.
+      - ./api:/app
+      - /app/node_modules
+      # Mount the '/app/node_modules' directory in the container. 
+      # Note: The host path is omitted, indicating it's using the default container path.
+
