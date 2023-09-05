@@ -11,15 +11,31 @@ services:
     # Assign a custom name to the container created from this service.
     container_name: api_c
     
-    # Map port 5050 on the host to port 4000 in the container.
+    # Map port 4000 on the host to port 4000 in the container.
     ports:
-      - '5050:4000'
+      - '4000:4000'
     
     # Define volumes to mount local directories into the container.
     volumes:
       # Mount the './api' directory on the host into the '/app' directory in the container.
       - ./api:/app
       - /app/node_modules
+      
       # Mount the '/app/node_modules' directory in the container. 
       # Note: The host path is omitted, indicating it's using the default container path.
 
+  # Define a service named 'myblog'.
+  myblog:
+    # Build the Docker image for this service using the Dockerfile in the './myblog' directory.
+    build: ./myblog
+    
+    # Assign a custom name to the container created from this service.
+    container_name: myblog_c
+    
+    # Map port 3000 on the host to port 3000 in the container.
+    ports:
+      - '3000:3000'
+    
+    # Allow stdin to be open, which is useful for running interactive commands in the container.
+    stdin_open: true
+    tty: true
